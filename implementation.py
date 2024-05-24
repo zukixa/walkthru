@@ -9,4 +9,4 @@ def get_us_date(day_count):
         str: The US date corresponding to the given day count.
 
     """
-    return 'January 1, 1960'
+    return f'January {1 + day_count}, 1960'
