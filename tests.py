@@ -13,6 +13,9 @@ class TestGetUSDateFunction(unittest.TestCase):
         self.assertEqual(get_us_date(425), 'March 1, 1961')
     def test_day_count_before_start(self):
         self.assertEqual(get_us_date(-1000), 'April 6, 1957')
+    def test_a_non_int_value(self):
+        with self.assertRaises(ValueError):
+            get_us_date('a')
         
 if __name__ == '__main__':
     unittest.main()
