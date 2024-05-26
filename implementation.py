@@ -9,7 +9,7 @@ def get_us_date(day_count):
         str: The US date corresponding to the given day count.
 
     """
-    current_day, current_month = 1, 1
+    current_day, current_month, current_year = 1, 1, 1960
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     while day_count > 0:
@@ -23,6 +23,8 @@ def get_us_date(day_count):
         else:
             current_day += day_count
             day_count = 0
-
+        if current_month > 12:  
+            current_month = 1
+            current_year += 1
         
-    return f'{months[current_month - 1]} {current_day}, 1960'
+    return f'{months[current_month - 1]} {current_day}, {current_year}'
