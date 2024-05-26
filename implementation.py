@@ -48,5 +48,26 @@ def get_us_date(day_count):
         if current_month > 12:  
             current_month = 1
             current_year += 1
+            
+    while day_count < 0:
+        if current_month == 1:
+            current_year -= 1
+            current_month = 12
+        else:
+            current_month -= 1
+
+        if is_leap_year(current_year):
+            month_days[1] = 29
+        else:
+            month_days[1] = 28
+
+        days_in_previous_month = month_days[current_month - 1]
+        
+        if -day_count > days_in_previous_month:
+            day_count += days_in_previous_month
+        else:
+            current_day = days_in_previous_month + day_count + 1
+            day_count = 0
+
         
     return f'{months[current_month - 1]} {current_day}, {current_year}'
