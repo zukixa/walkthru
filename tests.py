@@ -11,6 +11,8 @@ class TestGetUSDateFunction(unittest.TestCase):
         self.assertEqual(get_us_date(366), 'January 1, 1961')
     def test_for_leap_year_transition(self):
         self.assertEqual(get_us_date(425), 'March 1, 1961')
+    def test_day_count_before_start(self):
+        self.assertEqual(get_us_date(-1000), 'April 6, 1957')
         
 if __name__ == '__main__':
     unittest.main()
