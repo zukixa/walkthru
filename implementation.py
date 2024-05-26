@@ -14,17 +14,17 @@ def is_leap_year(year):
     
 def get_us_date(day_count: int):
     """
-    Get the US date corresponding to the given day count.
+    Get the US date corresponding to the given day delta.
 
     Parameters:
-        day_count (int): The number of days since January 1, 1960.
+        day_count (int): The delta of days to January 1, 1960.
 
     Returns:
-        str: The US date corresponding to the given day count.
+        str: The US date corresponding to the given day delta.
 
     """
     if not isinstance(day_count, int):
-        raise ValueError('Day count must be an integer.')
+        raise ValueError('Day delta must be an integer.')
     
     current_day, current_month, current_year = 1, 1, 1960
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
