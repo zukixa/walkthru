@@ -12,7 +12,7 @@ def is_leap_year(year):
         return 29
     return 28
     
-def get_us_date(day_count):
+def get_us_date(day_count: int):
     """
     Get the US date corresponding to the given day count.
 
@@ -23,6 +23,9 @@ def get_us_date(day_count):
         str: The US date corresponding to the given day count.
 
     """
+    if not isinstance(day_count, int):
+        raise ValueError('Day count must be an integer.')
+    
     current_day, current_month, current_year = 1, 1, 1960
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
