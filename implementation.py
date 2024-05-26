@@ -1,20 +1,16 @@
 def is_leap_year(year):
     """
-    Determines if a given year is a leap year.
+    Returns the number of days in February for a given year.
 
     Parameters:
         year (int): The year to check.
 
     Returns:
-        bool: True if the year is a leap year, False otherwise.
+        int: 29 if the year is a leap year, 28 otherwise.
     """
-    if year % 4 == 0:
-        if year % 100 == 0:
-            if year % 400 == 0:
-                return True
-            return False
-        return True
-    return False
+    if (year % 400 == 0) or (year % 100 != 0 and year % 4 == 0):
+        return 29
+    return 28
     
 def get_us_date(day_count):
     """
@@ -31,10 +27,7 @@ def get_us_date(day_count):
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     while day_count > 0:
-        if is_leap_year(current_year):
-            month_days[1] = 29
-        else:
-            month_days[1] = 28
+        month_days[1] = is_leap_year(current_year) 
         days_in_current_month = month_days[current_month - 1]
         days_till_month_end = days_in_current_month - current_day + 1
         
@@ -56,11 +49,7 @@ def get_us_date(day_count):
         else:
             current_month -= 1
 
-        if is_leap_year(current_year):
-            month_days[1] = 29
-        else:
-            month_days[1] = 28
-
+        month_days[1] = is_leap_year(current_year) 
         days_in_previous_month = month_days[current_month - 1]
         
         if -day_count > days_in_previous_month:
