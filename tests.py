@@ -7,8 +7,8 @@ class TestGetUSDateFunction(unittest.TestCase):
         self.assertEqual(get_us_date(10), 'January 11, 1960')
     def test_day_in_next_month(self):
         self.assertEqual(get_us_date(32), 'February 2, 1960')
-    def test_day_in_next_year(self):
-        self.assertEqual(get_us_date(365), 'January 1, 1961')
+    def test_day_in_next_year_during_leap(self):
+        self.assertEqual(get_us_date(366), 'January 1, 1961')
         
 if __name__ == '__main__':
     unittest.main()
