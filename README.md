@@ -24,5 +24,27 @@ This checklist was instrumental in guiding the refactor phases and ensuring that
 - **Review the Commit History**: Navigate through the commit history to understand the incremental development and TDD steps implemented. Each commit message and description detail the purpose and context of the changes.
 - **Explore Each Branch**: The branches represent different features or components developed through TDD practices.
 - **Read the Comments**: Each commit includes detailed comments discussing the changes, why they were made, and occasionally what could be improved or considered in future iterations.
+- **Follow the Checklist:** If you ever are struggling with the process, refer to the checklist below for guidance!
+----
+### walkthru-checklist:
 
+#### **Red Phase**
+- Group your test cases into partitions that should behave the same way.
+- Pick a test case from a group.
+- Write that test for what you want to add or fix.
+- Check that the test does not pass yet.
+
+#### **Green Phase**
+- Write the simplest code that makes the test pass.
+
+#### **Refactor Phase**
+- Look at your new code and clean it up without changing how it works.
+- Make sure your test still passes after cleaning up the code.
+
+#### **Overall:**
+  - Always run your tests to check everything still works.
+  - Save your changes often with notes on what you did.
+  - Do this for every new thing you want to add or fix.
+
+-----
 Enjoy exploring TDD with **walkthru**!
